@@ -30,6 +30,9 @@ Traditional Spark pipelines require manual management of checkpoints, state, and
 *   **Transformation:** Developed semantic views joining the Fact (Trips) with the **active version** of the Dimension (Cities).
 *   **Optimization:** Pre-aggregated KPIs (Total Revenue, Trip Volume, Avg Ratings) designed for sub-second BI response times.
 
+  ## *High level Architecture Flow*
+<img width="768" height="512" alt="High Level Architecture" src="https://github.com/user-attachments/assets/703c84ed-7dcd-408d-9e48-fd9eea88f6bf" />
+
   ## *Catalog Setup*
 <img width="956" height="395" alt="City_Travels_Catalog_Setup" src="https://github.com/user-attachments/assets/aa6bf5ea-996f-474a-be96-7297e8167ee6" />
 
