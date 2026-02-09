@@ -20,15 +20,15 @@ Traditional Spark pipelines require manual management of checkpoints, state, and
 *   **Resilience:** Utilized `schemaEvolutionMode: rescue` to capture malformed records in a `_rescued_data` column without pipeline interruption, ensuring 100% data fidelity.
 
 ### **2. Silver Layer: Integration & Quality**
-*   **Fact (Trips):** A Materialized View performing schema enforcement, data type casting, and column renaming for downstream compatibility.
+*   **Fact (Trips):** A Streaming Tables with data type casting, data quality checks, calculated columns, column renaming for downstream compatibility etc.
 *   **Dimension (Cities):** Implemented a **Slowly Changing Dimension (SCD Type 2)** using the `APPLY CHANGES INTO` syntax. 
     *   **Logic:** Tracks historical changes in city metadata (e.g., population/names) using `SEQUENCE BY` on file modification timestamps to ensure correct ordering.
 *   **Data Quality:** Defined **Expectations** (`expect_or_drop`, `expect_or_fail`) as code decorators to enforce strict data contracts at the record level.
 
 ### **3. Gold Layer: Analytical Delivery**
 *   **Pattern:** Materialized Views.
-*   **Transformation:** Developed semantic views joining the Fact (Trips) with the **active version** of the Dimension (Cities).
-*   **Optimization:** Pre-aggregated KPIs (Total Revenue, Trip Volume, Avg Ratings) designed for sub-second BI response times.
+*   **Transformation:** Developed semantic mviews joining the Fact (Trips) with the **active version** of the Dimension (Cities).
+*   **Optimization:** Pre-aggregated KPIs (Total Revenue, Trip Volume, Avg Ratings) MV and a detail info MV designed for sub-second BI response times with drill through.
 
   ## *High level Architecture Flow*
 <img width="768" height="512" alt="High Level Architecture" src="https://github.com/user-attachments/assets/703c84ed-7dcd-408d-9e48-fd9eea88f6bf" />
