@@ -27,6 +27,8 @@ SELECT
   t.passenger_type,
   t.distance_travelled_km,
   t.fare_amount,
+  t.cost_per_km,
+  t.day_of_week,
   t.passenger_rating,
   t.driver_rating
 FROM city_travels_medallion.b_silver.silver_trips t
