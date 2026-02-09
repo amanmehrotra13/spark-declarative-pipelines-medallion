@@ -53,8 +53,6 @@ Traditional Spark pipelines require manual management of checkpoints, state, and
 
 ---
 
-## 🚀 How to Deploy
-1. Clone this repository into your **Databricks Workspace** using Git Folders.
-2. Create a new **Lakeflow Pipeline** (Delta Live Tables).
-3. Add the `pipelines/` (or `transformations/`) folder as the source code.
-4. Set the `Target Schema` in Unity Catalog and click **Start**.
+## **💡 Implementation Strategy: Declarative vs. Imperative**
+While the codebase is concise, it leverages the high-level **Spark Declarative Pipeline (SDP)** abstractions to handle complex distributed computing tasks and leaving the low-level orchestration, state management, and checkpointing to the SDP engine.
+
